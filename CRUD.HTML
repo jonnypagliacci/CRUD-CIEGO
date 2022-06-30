@@ -50,7 +50,7 @@
             <li class="list__item list__item--inside">
                 <div class="list__button">
                     <img src="IMAGENES/bx-cart-download.svg">
-                    <a href="#" class="nav__link">Venta de producto</a>
+                    <a href="#" class="nav__link" onclick="ventanaVentaDeProducto()">Venta de producto</a>
                 </div>   
             </li>
 
@@ -60,14 +60,8 @@
     <div class="ventana" id="ventanaInventario">
         
         <div id="cerrar" onclick="cerrarVentanaInventario()"> <img src="IMAGENES/imagenesVentanas/bxs-x-circle.svg" ></div>
-    
+        
         <table class="tabla" id="innerInventario">
-            <tr>
-                <th>Producto</th>
-                <th>Precio</th>
-                <th>Cantidad</th>
-            </tr>
-                 
         </table>
 
         <button id="botonActualizar" onclick="inventarioDeProductos()">Actualizar Tabla</button>
@@ -87,6 +81,34 @@
             <input class="controls" type="number" id="cantidad" placeholder="Cantidad" onkeypress="agregarProductoEnter(event)">
             <input class="botons" type="submit" value="Registrar" id="botonAgregar" onclick="agregarProducto()">
         </section>
+
+    </div>
+
+    <div class="ventana" id="ventanaVentaDeProducto">
+        
+        <div id="cerrar" onclick="cerrarVentanaVentaDeProducto()"> <img src="IMAGENES/imagenesVentanas/bxs-x-circle.svg" ></div>
+        <select id="seleccionDeProductos" class="seleccionDeProductos">
+
+        </select>
+        <button class="botonSeleccionProducto"  onclick="botonSeleccionProducto()">Producto</button>
+        <button class="botonAgregarProductoVenta"  onclick="agregarProductoCarrito()">Agregar al Carrito</button>
+        <button class="botonPagar"  onclick="botonPagar()">Pagar</button>
+        <h1 class="precioDelProducto">Precio del producto</h1>
+        <h1 class="unidadesDisponibles">Unidades disponibles</h1>
+        <h1 class="precioCarritoTotal">Total de Venta</h1>
+        <h1 class="desgloceDeProductos">Desgloce de productos</h1>
+        <div class="ventanaPrecio">
+            <div class="precioVenta" id="precioVenta"></div>
+        </div>
+        <div class="ventanaUnidades">
+            <div class="precioVenta" id="cantidadUnidades"></div>
+        </div>
+        <div class="ventanaTotal">
+            <div class="precioTotal" id="cantidadTotal"></div>
+        </div>
+        <div class="ventanaTotalProductos">
+            <div class="totalDeProductos" id="cantidadProductoTotal"></div>
+        </div>
 
     </div>
 

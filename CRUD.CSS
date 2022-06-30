@@ -113,7 +113,7 @@ body{
 }
 
 table,th, td{
-    padding: 15px;
+    padding: 10px;
     border: 1px solid black;
 }
 
@@ -175,3 +175,120 @@ table,th, td{
     background: rgb(225, 222, 222);
 }
 
+.ventanaPrecio{
+    background: white;
+    width: 30%;
+    padding:  33px;
+    min-height: 200px;
+    position: absolute;
+    left: 70%;
+    top: 71%;
+    display: block;
+}
+.ventanaTotalProductos{
+    background: white;
+    width: 30%;
+    height: 45%;
+    padding:  33px;
+    min-height: 200px;
+    position: absolute;
+    left:35%;
+    top: 15%;
+    display: block;
+}
+.ventanaUnidades{
+    background: white;
+    width: 30%;
+    padding:  33px;
+    min-height: 200px;
+    position: absolute;
+    left: 25%;
+    top: 71%;
+    display: block
+}
+.ventanaTotal{
+    background: white;
+    width: 30%;
+    padding:  33px;
+    min-height: 200px;
+    position: absolute;
+    left:70%;
+    top: 20%;
+    display: block
+}
+.precioVenta{
+    font-size: 400%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: absolute;
+    left: 12%;
+    color: blue;
+}
+.precioDelProducto{
+    position: absolute;
+    margin-top: 335px;
+    right: 4%;
+}
+.precioCarritoTotal{
+    position: absolute;
+    margin-top: 220px;
+    right: 4%;
+}
+.desgloceDeProductos{
+    position: absolute;
+    margin-top: -50px;
+    right: 35%;
+}
+.precioTotal{
+    font-size: 400%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: absolute;
+    left: 12%;
+    color: blue;
+}
+.totalDeProductos{
+    font-size: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: absolute;
+    left: 12%;
+    color: blue;
+}
+.unidadesDisponibles{
+    position: fixed;
+    margin-top: 335px;
+    right: 39%;
+}
+
+.seleccionDeProductos{
+    padding: 15px;
+    font-size: 44px;
+    border-radius: 4px;
+}
+.botonSeleccionProducto{
+    font-size: 24px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.botonSeleccionProducto:hover{
+    background: rgb(225, 222, 222);
+}
+.botonAgregarProductoVenta{
+    position: absolute;
+    left: 20.55%;
+    font-size: 24px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.botonAgregarProductoVenta:hover{
+    background: rgb(225, 222, 222);
+}
+.botonPagar{
+    position: absolute;
+    left: 80%;
+    width: 200px;
+    font-size: 24px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.botonPagar:hover{
+    background: rgb(225, 222, 222);
+}
