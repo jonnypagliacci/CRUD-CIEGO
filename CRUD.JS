@@ -160,33 +160,46 @@ const botonSeleccionProducto = () => {
     }else{
         document.getElementById("precioVenta").innerHTML = "";
         document.getElementById("cantidadUnidades").innerHTML = "";
-    };       
+    }; 
 }
 
 const agregarProductoCarrito = () => {
+    let totalCantidad = document.getElementById("cantidadUnidades");
     let totalDeProcutos = document.getElementById("cantidadProductoTotal");
     let agregarProducto = document.getElementById("cantidadTotal");
     let seleccionVenta = document.getElementById("seleccionDeProductos");
     let precioVenta = document.getElementById("precioVenta").innerText;
     let x = 0;
-    if(precioVenta !== ""){
-        listaVenta.push(parseFloat(precioVenta));
-        for(let i = 0; i < listaVenta.length ; i++){
-            x += listaVenta[i];
-        }
-        return agregarProducto.innerHTML = `$${x}`,
-        totalDeProcutos.innerHTML += 
-        `
-        ${seleccionVenta.options[seleccionVenta.selectedIndex].value} 
-        $${precioVenta} <p></p>
-        `;
-        
-    }else {
-        window.alert("Selecciona un producto");
-    };
+    if(totalCantidad.innerText !== "0")
+        {
+            for(const cantidad in productos){
+                if(productos[cantidad].nombre === seleccionVenta.options[seleccionVenta.selectedIndex].value){
+                    productos[cantidad].cantidad -= 1;
+                    totalCantidad.innerText = productos[cantidad].cantidad;
+                }
+            }
+            if(precioVenta !== ""){
+                listaVenta.push(parseFloat(precioVenta));
+                for(let i = 0; i < listaVenta.length ; i++){
+                    x += listaVenta[i];
+                };
+                return agregarProducto.innerHTML = `$${x}`,
+                totalDeProcutos.innerHTML += 
+                `
+                ${seleccionVenta.options[seleccionVenta.selectedIndex].value} 
+                $${precioVenta} <p></p>
+                `;
+                
+            }else {
+                window.alert("Selecciona un producto");
+            };
+        }else{
+            window.alert(`No se cuenta con existencia de ${seleccionVenta.options[seleccionVenta.selectedIndex].value}, seleccione otro producto`);
+        }    
 }
-
 const botonPagar = () => {
+    for(let i = 0; i < listaVenta.length; i++){
+    }
     if(listaVenta.length !== 0)
     {   
         for(let i = -2; i <= listaVenta.length; i++){
@@ -202,7 +215,4 @@ const botonPagar = () => {
         window.alert("Favor de ingresar producto al carrito");
     };
 };
-
-
-
 
