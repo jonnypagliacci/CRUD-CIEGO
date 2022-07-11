@@ -38,12 +38,16 @@ const ventanaInventario = () => {
     document.getElementById("ventanaInventario").style.display = "block";
     document.getElementById("ventanaAgregarProducto").style.display = "none";
     document.getElementById("ventanaVentaDeProducto").style.display = "none";
+    document.getElementById("ventanaModificarProducto").style.display = "none";
+    document.getElementById("ventanaCompraDeProducto").style.display = "none"
     document.getElementById("seleccionDeProductos").innerHTML = "";
 };
 const ventanaAgregarProducto = () => {
     document.getElementById("ventanaAgregarProducto").style.display = "block";
     document.getElementById("ventanaInventario").style.display = "none";
     document.getElementById("ventanaVentaDeProducto").style.display = "none";
+    document.getElementById("ventanaModificarProducto").style.display = "none";
+    document.getElementById("ventanaCompraDeProducto").style.display = "none"
     document.getElementById("seleccionDeProductos").innerHTML = "";
     document.getElementById("producto").focus();
 };
@@ -52,6 +56,8 @@ const ventanaVentaDeProducto = () => {
     document.getElementById("ventanaVentaDeProducto").style.display = "block";
     document.getElementById("ventanaAgregarProducto").style.display = "none";
     document.getElementById("ventanaInventario").style.display = "none";
+    document.getElementById("ventanaModificarProducto").style.display = "none";
+    document.getElementById("ventanaCompraDeProducto").style.display = "none"
     let seleccion = document.getElementById("seleccionDeProductos");
     if(seleccion.length !== productos.length)   
     {
@@ -62,6 +68,65 @@ const ventanaVentaDeProducto = () => {
         };
     };
 };
+const ventanaModificarProducto = () => {
+    document.getElementById("ventanaModificarProducto").style.display = "block";
+    document.getElementById("ventanaAgregarProducto").style.display = "none";
+    document.getElementById("ventanaVentaDeProducto").style.display = "none";
+    document.getElementById("ventanaInventario").style.display = "none";
+    document.getElementById("ventanaCompraDeProducto").style.display = "none"
+    let seleccion = document.getElementById("seleccionDeProductos1");
+    if(seleccion.length !== productos.length)   
+    {
+           
+        for(let i = 0; i < productos.length ; i++)
+            {seleccion.innerHTML +=
+            `<option value="${productos[i].nombre}" >${productos[i].nombre}</option>`;
+        };
+        
+    };
+};
+const ventanaCompraDeProducto = () => {
+    document.getElementById("ventanaCompraDeProducto").style.display = "block"
+    document.getElementById("ventanaAgregarProducto").style.display = "none";
+    document.getElementById("ventanaInventario").style.display = "none";
+    document.getElementById("ventanaVentaDeProducto").style.display = "none";
+    document.getElementById("ventanaModificarProducto").style.display = "none";
+    document.getElementById("seleccionDeProductos").innerHTML = "";
+    let inventario = document.getElementById('innerInventario1');
+    if(inventario.children.length < productos.length)
+    {    
+        inventario.innerHTML +=
+            `<td>Producto</td>
+            <td>Precio</td>
+            <td>Cantidad</td>`;
+        for(let i = 0; i < productos.length; i++){
+            inventario.innerHTML +=
+            `<tr>
+                <td id="${productos[i].precio}">${productos[i].nombre}</td>
+                <td id="${productos[i].precio}">$${productos[i].precio}</td>
+                <td id="${productos[i].cantidad}">${productos[i].cantidad}</td>
+            </tr> `
+        };
+    }else{
+        inventario.innerHTML = "";
+            if(inventario.children.length < productos.length)
+        {    
+            inventario.innerHTML +=
+                `<td>Producto</td>
+                <td>Precio</td>
+                <td>Cantidad</td>`;
+            for(let i = 0; i < productos.length; i++){
+                inventario.innerHTML +=
+                `<tr>
+                    <td id="${productos[i].precio}">${productos[i].nombre}</td>
+                    <td id="${productos[i].precio}">$${productos[i].precio}</td>
+                    <td id="${productos[i].cantidad}">${productos[i].cantidad}</td>
+                </tr> `
+            };
+            
+        }
+    }    
+};
 // Cerrar ventanas
 const cerrarVentanaInventario = () => document.getElementById("ventanaInventario").style.display = "none";
 const cerrarVentanaAgregarProducto = () => document.getElementById("ventanaAgregarProducto").style.display = "none";
@@ -69,6 +134,8 @@ const cerrarVentanaVentaDeProducto = () => {
     document.getElementById("ventanaVentaDeProducto").style.display = "none";
     document.getElementById("seleccionDeProductos").innerHTML = "";
 };   
+const cerrarVentanaModificarProducto = () => document.getElementById("ventanaModificarProducto").style.display = "none";
+const cerrarVentanaCompraDeProducto = () => document.getElementById("ventanaCompraDeProducto").style.display = "none";
 // Inventario. 
 const inventarioDeProductos = () => {
     let inventario = document.getElementById('innerInventario');
@@ -137,6 +204,9 @@ const agregarProducto = () => {
 const agregarProductoEnter = event => {
     if(event.key === "Enter") agregarProducto();
 };
+const agregarProductoEnter1 = event => {
+    if(event.key === "Enter") window.alert("falta agregar la función a realizar");
+}
 
 
 // Venta de Producto.
@@ -216,3 +286,88 @@ const botonPagar = () => {
     };
 };
 
+// Ventana Modificar El Producto
+
+const seleccionModificarProducto = () => {
+    let ventanaProductosSeleccionados = document.getElementById("ventanitaModificarProducto");
+    let seleccionVenta = document.getElementById("seleccionDeProductos1");
+    for(let i = 0; i < productos.length; i++){
+        if(seleccionVenta.options[seleccionVenta.selectedIndex].value === productos[i].nombre){
+            ventanaProductosSeleccionados.innerText = 
+            `
+            Nombre del producto: ${productos[i].nombre} 
+            Precio del Producto: $${productos[i].precio} 
+            Cantidad del producto: ${productos[i].cantidad}
+            `;
+        }
+    }
+};
+const botonModificar = () => {
+    let ventanaProductosSeleccionados = document.getElementById("ventanitaModificarProducto");
+    let seleccionVenta = document.getElementById("seleccionDeProductos1");
+    let textoModificar = document.getElementById("textoModificar").value;
+    let precioModificar = parseFloat(document.getElementById("precioModificar").value);
+    let cantidadModificar = document.getElementById("cantidadModificar").value;
+
+    if (!textoModificar){
+        window.alert("Coloque el nuevo nombre del producto por favor");
+    }else if(!precioModificar){
+        window.alert("Coloca el nuevo precio del producto por favor");
+    }else if(!cantidadModificar){
+        window.alert("Coloca la nueva Cantidad del producto por favor");
+    }else{
+        for(let i = 0; i < productos.length; i++){
+            if(seleccionVenta.options[seleccionVenta.selectedIndex].value === productos[i].nombre){
+                productos[i].nombre = textoModificar,
+                productos[i].precio = precioModificar,
+                productos[i].cantidad = cantidadModificar;
+                console.log(productos[i]);
+            };
+        };
+        seleccionVenta.innerHTML = "";
+
+        if(seleccionVenta.length !== productos.length)   
+        {
+            {    
+            for(let i = 0; i < productos.length ; i++)
+                seleccionVenta.innerHTML +=
+                `<option value="${productos[i].nombre}" >${productos[i].nombre}</option>`;
+            };
+        };
+
+        ventanaProductosSeleccionados.innerText = "";
+
+        for(let i = 0; i < productos.length; i++){
+            if(textoModificar === productos[i].nombre){
+                ventanaProductosSeleccionados.innerText = 
+                `"Producto modificado"
+                Nombre del producto: ${productos[i].nombre} 
+                Precio del Producto: $${productos[i].precio} 
+                Cantidad del producto: ${productos[i].cantidad}
+                `;
+            }
+        }
+        document.getElementById("textoModificar").value = "";
+        document.getElementById("precioModificar").value = "";
+        document.getElementById("cantidadModificar").value = "";
+        document.getElementById("textoModificar").focus();
+    };
+};
+
+// Comprar Producto 
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    let botonComprarProducto = document.getElementById("botonComprarProducto");
+    let productoAComprar = document.getElementById("productoAComprar");
+    let cantidadAComprar = document.getElementById("cantidadAComprar");
+    botonComprarProducto.addEventListener("click", () => {
+        for(let i = 0; i < productos.length ; i++){
+            if(productoAComprar.value.toLowerCase() === productos[i].nombre.toLowerCase()){
+                productos[i].cantidad += parseInt(cantidadAComprar.value);
+                productoAComprar.value = "";
+                cantidadAComprar.value = "";
+                productoAComprar.focus();                
+            };
+        };
+    });
+});

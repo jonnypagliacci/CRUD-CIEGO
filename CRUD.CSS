@@ -144,6 +144,20 @@ table,th, td{
     border-radius: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+.form-register2{
+    width: 400px;
+    background: white;
+    padding: 100px;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.form-register2 h4{
+    font-size: 22px;
+    margin-bottom: 55px;
+}
+
 
 .form-register h4{
     font-size: 22px;
@@ -170,8 +184,20 @@ table,th, td{
     font-size: 16px;
     cursor: pointer;
 }
+.form-register2 .botons{
+    width: 100%;
+    background: white;
+    border: 1px solid black;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
 
 .form-register .botons:hover{
+    background: rgb(225, 222, 222);
+}
+.form-register2 .botons:hover{
     background: rgb(225, 222, 222);
 }
 
@@ -291,4 +317,60 @@ table,th, td{
 }
 .botonPagar:hover{
     background: rgb(225, 222, 222);
+}
+.divModificarProducto{
+    position: absolute;
+    left: 25%;
+    top: 20%;
+    background: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 44px;
+}
+.seccionModificar{
+    position: absolute;
+    top: 50%;
+    left: 34%;
+    font-size: 22px;
+
+}
+.formularioModificar{
+    position: absolute;
+    top: 55%;
+    width: 25%;
+    left: 41%;
+    background: white;
+    border: 1px solid black;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.formulario2{
+    position: absolute;
+    top: 55%;
+    width: 40%;
+    left: 30%;
+    background: white;
+    border: 1px solid black;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.controls1{ 
+    width: 100%;
+    background: white;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin-bottom: 26px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+}
+.buttonModificar{
+    width: 100%;
+    background: white;
+    border: 1px solid black;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
 }

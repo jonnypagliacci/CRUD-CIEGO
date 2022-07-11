@@ -28,7 +28,7 @@
             <li class="list__item list__item--inside">
                 <div class="list__button">
                     <img src="IMAGENES/bx-receipt.svg" class="list__img">
-                    <a href="#" class="nav__link">Modificar producto</a>
+                    <a href="#" class="nav__link" onclick="ventanaModificarProducto()">Modificar producto</a>
                 </div>
             </li>
 
@@ -43,7 +43,7 @@
             <li class="list__item list__item--inside">
                 <div class="list__button">
                     <img src="IMAGENES/bxs-basket.svg" class="list__img">
-                    <a href="#" class="nav__link">Comprar producto</a>
+                    <a href="#" class="nav__link" onclick="ventanaCompraDeProducto()">Comprar producto</a>
                 </div>
             </li>
 
@@ -83,6 +83,29 @@
         </section>
 
     </div>
+    
+    <div class="ventana" id="ventanaModificarProducto">
+
+        <div id="cerrar" onclick="cerrarVentanaModificarProducto()"> <img src="IMAGENES/imagenesVentanas/bxs-x-circle.svg" ></div>
+
+        <select id="seleccionDeProductos1" class="seleccionDeProductos" onclick="seleccionModificarProducto()">
+
+        </select>
+
+        <div class="divModificarProducto" id="ventanitaModificarProducto">
+
+        </div>
+
+        <h1 class="seccionModificar">Agregue lo que quiere cambiar del producto por favor</h1>    
+        <form action="" class="formularioModificar" name="formulario1">
+            <input class="controls1" type="text" id="textoModificar" placeholder="Nombre Del Producto" >
+            <input class="controls1" type="number" step="any" id="precioModificar" placeholder="Precio del producto" >
+            <input class="controls1" type="number" id="cantidadModificar" placeholder="Cantidad del producto" >
+            <button class="buttonModificar" onclick="botonModificar()">Aceptar</button>
+        </form>
+
+
+    </div>
 
     <div class="ventana" id="ventanaVentaDeProducto">
         
@@ -112,6 +135,22 @@
 
     </div>
 
+    <div class="ventana" id="ventanaCompraDeProducto">
+        
+        <div id="cerrar" onclick="cerrarVentanaCompraDeProducto()"> <img src="IMAGENES/imagenesVentanas/bxs-x-circle.svg" ></div>
+        
+        <table class="tabla" id="innerInventario1">
+        </table>
 
+        <form action="" id="formulario2" class="formulario2">
+            <input type="text" id="productoAComprar" placeholder="Producto a comprar">
+            <input type="number" id="cantidadAComprar" placeholder="Cantidad a comprar">
+            <button id="botonComprarProducto">Comprar Producto</button>
+        </form>
+        
+    </div>
+
+
+    
 </body>
 </html>
