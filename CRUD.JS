@@ -18,30 +18,9 @@ Menu con opciones
 
 git push -u origin main
 */
-// Lista de productos.
-const productos = [{
-    nombre: 'Cebolla',
-    precio: 15 ,
-    cantidad: 12    
-},{
-    nombre: 'Platano',
-    precio: 21 ,
-    cantidad: 6
-},{
-    nombre: 'Cerveza',
-    precio: 36 ,
-    cantidad: 21
-}];
 
-// Abrir ventanas 
-const ventanaInventario = () => {
-    document.getElementById("ventanaInventario").style.display = "block";
-    document.getElementById("ventanaAgregarProducto").style.display = "none";
-    document.getElementById("ventanaVentaDeProducto").style.display = "none";
-    document.getElementById("ventanaModificarProducto").style.display = "none";
-    document.getElementById("ventanaCompraDeProducto").style.display = "none"
-    document.getElementById("seleccionDeProductos").innerHTML = "";
-};
+//seleccionarVentana('inventario')
+
 const ventanaAgregarProducto = () => {
     document.getElementById("ventanaAgregarProducto").style.display = "block";
     document.getElementById("ventanaInventario").style.display = "none";
@@ -128,8 +107,8 @@ const ventanaCompraDeProducto = () => {
     }    
 };
 // Cerrar ventanas
-const cerrarVentanaInventario = () => document.getElementById("ventanaInventario").style.display = "none";
-const cerrarVentanaAgregarProducto = () => document.getElementById("ventanaAgregarProducto").style.display = "none";
+const cerrarVentanaInventario = () => ventanas.inventario.style.display = "none";
+const cerrarVentanaAgregarProducto = () => ventanas.agregar.style.display = "none";
 const cerrarVentanaVentaDeProducto = () => {
     document.getElementById("ventanaVentaDeProducto").style.display = "none";
     document.getElementById("seleccionDeProductos").innerHTML = "";
@@ -212,7 +191,7 @@ const agregarProductoEnter1 = event => {
 // Venta de Producto.
 const listaVenta = [];
 const botonSeleccionProducto = () => {
-    let precioEscrito = document.getElementById("precioVenta");
+    const precioEscrito = document.getElementById("precioVenta");
     let precioVenta = document.getElementById("precioVenta").innerText;
     let seleccionVenta = document.getElementById("seleccionDeProductos");
     let unidad = document.getElementById("cantidadUnidades");
@@ -240,18 +219,17 @@ const agregarProductoCarrito = () => {
     let seleccionVenta = document.getElementById("seleccionDeProductos");
     let precioVenta = document.getElementById("precioVenta").innerText;
     let x = 0;
-    if(totalCantidad.innerText !== "0")
-        {
+    if(totalCantidad.innerText !== "0") {
             for(const cantidad in productos){
-                if(productos[cantidad].nombre === seleccionVenta.options[seleccionVenta.selectedIndex].value){
+                if(productos[cantidad].nombre === seleccionVenta.options[seleccionVenta.selectedIndex].value) {
                     productos[cantidad].cantidad -= 1;
                     totalCantidad.innerText = productos[cantidad].cantidad;
                 }
             }
             if(precioVenta !== ""){
                 listaVenta.push(parseFloat(precioVenta));
-                for(let i = 0; i < listaVenta.length ; i++){
-                    x += listaVenta[i];
+                for(let index = 0; index < listaVenta.length ; index++){
+                    x += listaVenta[index];
                 };
                 return agregarProducto.innerHTML = `$${x}`,
                 totalDeProcutos.innerHTML += 
@@ -268,10 +246,7 @@ const agregarProductoCarrito = () => {
         }    
 }
 const botonPagar = () => {
-    for(let i = 0; i < listaVenta.length; i++){
-    }
-    if(listaVenta.length !== 0)
-    {   
+    if(listaVenta.length !== 0) {
         for(let i = -2; i <= listaVenta.length; i++){
             listaVenta.pop();
         }
@@ -287,7 +262,6 @@ const botonPagar = () => {
 };
 
 // Ventana Modificar El Producto
-
 const seleccionModificarProducto = () => {
     let ventanaProductosSeleccionados = document.getElementById("ventanitaModificarProducto");
     let seleccionVenta = document.getElementById("seleccionDeProductos1");
@@ -366,7 +340,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 productos[i].cantidad += parseInt(cantidadAComprar.value);
                 productoAComprar.value = "";
                 cantidadAComprar.value = "";
-                productoAComprar.focus();                
+                productoAComprar.focus();
             };
         };
     });

@@ -1,0 +1,6 @@
+ventanas.inventario.style.display = 'block'
+ventanas.agregar.style.display = 'none'
+ventanas.venta.style.display = 'none'
+ventanas.modificar.style.display = 'none'
+ventanas.compra.style.display = 'none'
+ventanas.seleccion.innerHTML = ''
